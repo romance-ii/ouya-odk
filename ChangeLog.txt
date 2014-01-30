@@ -1,0 +1,161 @@
+ODK 1.0.9 - October 8, 2013
+=======================
+- Can finally hide the mouse cursor!  Use this new method: OuyaController.showCursor
+- Can also modify the mouse cursor image!  OuyaController.setCursorBitmap
+
+ODK 1.0.8 - September 19, 2013
+=======================
+- Purchase receipt objects now include the currency they were purchased with and localized price fields, along with helper functions for formatting the localized price for display
+
+ODK 1.0.7 - July 23, 2013
+=======================
+- Exposed more information in the Receipt class: purchasing gamer uuid & app-specified purchase uuid
+- Finally fixed OuyaController.startOfFrame crash
+- Fixed OuyaFacade.getGameData always returning the incorrect value
+- Added OuyaFacade.getAllGameData to get all key/value pairs
+
+ODK 1.0.6 - June 24, 2013
+=======================
+- Game Details page has been re-designed:
+-- Images and buttons now easier to navigate
+-- Selecting (Pressing the (O) button on) an image will show it full screen
+-- Description text no longer flows off screen.
+-- “More Info” button allows user to read full description text
+-- Longer titles now accommodated better
+-- Queued downloads now display as "In Queue…"
+-- Ratings system has been updated to use a more intuitive system of age ranges
+-- Founders Icon for games now appears on the Game Details page.  Thanks for believing!
+- Download behavior changes:
+-- Game downloads can now be cancelled!
+-- Downloads have been limited to 1 to increase performance while navigating during a download
+-- Downloads are paused when a game is running to maintain best performance while playing.  They resume automatically when exiting the game
+-- Downloads now start in the order they were queued
+-- Downloads give a clear indication when there is not enough space left to accommodate them
+- Added the ability to set a PIN code for purchases.  Parents rejoice!  This can be found in under MANAGE -> ACCOUNT -> PARENTAL CONTROLS
+- Added support for redeeming pre-paid cards.  They can be redeemed when creating a new user, or from the MANAGE -> ACCOUNT -> PAYMENTS screen
+- Re-flowed in-game purchases to accommodate pre-paid cards.  Allows the user to fix purchase errors without leaving the game.
+- Logging out now allows users to log in or create a new user
+- PLAY category now sorts by most recently played or downloaded
+- Changed background image.  Style points +1
+- Changed layout of Network screen to match the new user experience.
+- Changed the look of more dialogs to have the OUYA theme
+- Fixed bug that could cause the account screen to appear to not respond to user input
+- Fixed a bug that could occur when getting a system update while out of space
+- New repository with 3rd party game engine examples: https://github.com/ouya/ouya-sdk-examples/
+
+ODK 1.0.5 - June 11, 2013
+=======================
+- New Discover section is LIVE!
+-- Layout is changed to better highlight games and allow the user to more easily access them.
+-- Tile images now load in more quickly and have better caching.
+-- Improved performance and navigation.
+-- Download progress is now shown on the tile for each game, making it easier to see progress.  OUYA supports 3 simultaneous downloads and will queue requested downloads above 3. 
+-- Genre sections launch user to a new window so many more games can be seen at a time.
+- Play category now loads more quickly and scrolls smoother for users with lots of games.
+- Games with available updates now have an icon in the top right corner of their tiles in both Play and Discover.  Users can download the update from the tile in Play, or from the Game Details screen. 
+- Downloaded games now install automatically.  No more annoying default Android permissions screen!  No more 'Install' tiles in the Play menu! Working on world peace next.
+- Users can put their OUYA into sleep mode via the controller. Hit (Y) from the main menu to do so.  OUYAs in sleep mode can be woken up by turning on a controller or pressing the power button on top of the OUYA.
+- Android settings and Browser now respect TV safe zones.  And yup, part of the 'O' in OUYA is still supposed to be off screen on the Main Menu =) 
+- Region Restrictions are now available for Developers.  You can restrict regions for your games through the Dev Portal.  Remember, you are choosing which regions to NOT show in.  Your games show in all regions by default.
+- Release Calendar is now available for developers.  Devs can choose to give a release date for their title that will show on ouya.tv for all users to see.  It'™s a great way to tell people to look out for your game!
+- Fixed issue that could cause input queuing in some games.
+- Changed 'Re-run Setup' to do a full factory reset (and renamed it to 'Factory Reset').
+
+ODK 1.0.4 - May 21, 2013
+=======================
+- The latest OUYA Unity package now lives on public github https://github.com/ouya/ouya-unity-plugin
+- The community can now submit pull requests against the ouya-unity-plugin.
+- Improvements to all screens during initial out-of-box experience
+- MAKE category is no longer super aggro with its pop-up
+- Improvements to game downloads if internet connection is lost mid-download
+- Performance improvements with controllers
+- Fixed null reference exception that could occur when main menu appears
+- Fixed an issue where the displayed expiration date for cards could be off by 1 month
+- Fixed an issue where ethernet connection was sometimes not recognized if the cable was inserted after boot up
+- Going to console updates with no internet connection no longer puts users into a loop
+- Cleanup on button legends to be more accurate
+- Minor layout tweaks to soft keyboard
+
+ODK 1.0.3 - Apr 8, 2013
+========================
+-Frequent updates to the OUYA Unity Package can be found at - http://tagenigma.com/ouya/OuyaSDK-1.0.0/
+
+ODK 1.0.2 - Mar 28, 2013
+========================
+-On the Dev portal, go to the Analytics header.  From there you can download a csv with basic analytics like downloads, purchases, and crash reports
+We plan to expand this and provide better views for it in the future
+-Discover is now live!  Users can find your games in the discover category, download them, and make in app purchases
+-Frequent updates to the OUYA Unity Package can be found at - http://tagenigma.com/ouya/OuyaSDK-1.0.0/
+
+ODK 1.0.1 - Mar 21, 2013
+========================
+- The console USB VID/PID has changed. Please see https://github.com/ouya/docs/blob/master/setup.md
+
+ODK 1.0.0 - Mar 4, 2013
+=======================
+-Made it easier for developers to check what button states change each frame
+-Added action to allow apps to intent filter for detecting when the system menu is opening.
+
+ODK 0.0.7 - Feb 22, 2013
+========================
+-Added isRunningOnOUYAHardware to OUYAFacade to allow developers to test for OUYA hardware
+-Added menu button to OuyaController
+-Controller LEDs correctly represent player number (as per OuyaController.getControllerByPlayer)
+-Fix log-in issues when running on an emulator
+
+ODK 0.0.6 - Feb 4, 2013
+========================
+-The method signature of decryptReceiptResponse has changed to allow for receipt encryption. Please use parseJSONReceiptResponse instead until encrypted receipts are available.
+-Changed the OUYA intents to have a "tv." at the front.  The new intents are: tv.ouya.intent.category.APP or tv.ouya.intent.category.GAME
+-Fixed a bug where the controller 'anytime state querying' wasn't working for some buttons/axes
+-Removed a bunch of auto-boxing within the OuyaController class
+
+ODK 0.0.5 - Jan 9, 2013
+========================
+-Included an updated framework apk
+-Resolved a purchasing issue
+-Made the "Expire Current Token" menu option work
+-Test "always decilned" products are once again correctly declined
+-Added a proper OUYA icon for game-sample
+-Force US locale when using NumberFormat.getCurrencyInstance
+
+OUYA Unity package:
+- Build and Run in the OUYA panel recognize the build settings for selected scenes, development checkbox, and script debugging.
+- Event driven controller input
+- Multiple controller support
+- SceneMultipleControllers supports multiple controllers on characters
+
+ODK 0.0.4 - Dec 28, 2012
+========================
+-TONS of OUYA Launcher work
+-Updated OUYA SDK Unity Package doc with examples and script documentation (OUYA-ODK/Documentation/OUYA SDK Unity Package.pdf)
+-OUYA SDK Unity Package, added virtual model to controller example scene
+-OUYA SDK Unity Package, added NDK example
+-OUYA SDK Unity Package, added NDK tab to OUYA Panel and C++ compiling support on Mac/Windows
+-OUYA SDK Unity Package, reexported with Unity 3.5.0
+-Added Interface Guidelines documentation
+-Updated Build Environment Setup doc with OUYA application image information
+-Button names for LB/LT/LTHUMB are now L1/L2/L3 (same with R_)
+-LSTICK and RSTICK axes are now referred to as LS and RS
+
+ODK 0.0.3 - Nov 20, 2012
+========================
+-Changed OuyaFacade to be a singleton (use getInstance)
+-OuyaController now has helper methods for querying the controller state at any time (need to pass key & motion events to onKeyEventUp/onKeyEventDown/onGenericMotionEvent in OuyaController)
+-New OuyaController doc (OUYA-ODK/Documentation/Controllers.pdf)
+-Added "ouya-controller-testapp" project
+-Added "game-sample" project for a more real-life integration example (OUYA-ODK/Samples/game-sample)
+-Added OUYA SDK Unity Package (OUYA-ODK/Packages/Unity)
+-New OUYA SDK Unity Package doc (OUYA-ODK/Documentation/OUYA SDK Unity Package.pdf)
+-Added GAME and APP Intent categories, which allow your games and apps to show up on the Games and Apps screens.
+
+ODK 0.0.2 - Nov 13, 2012
+========================
+-Rename iap-sample-app apk (OuyaAndroid -> iap-sample-app)
+-Made iap-sample-app not crash on start-up
+-Changed base directory to "OUYA-ODK"
+-Removed dependency on Guice and RoboGuice
+
+ODK 0.0.1 - Nov 12, 2012
+=======================
+-Initial release.
