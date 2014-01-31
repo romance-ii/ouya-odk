@@ -5,3 +5,8 @@
 *.war
 *.ear
 *~
+
+# Ecliprse outputs
+Samples/game-sample/bin/
+Samples/iap-sample-app/bin/
+Samples/ouya-controller-testapp/bin/
